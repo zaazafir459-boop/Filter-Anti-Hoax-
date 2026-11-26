@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VeriSMA — Pusat Cek Fakta & Edukasi Anti-Hoaks Siswa SMA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Ornamen Bunga SVG Dekoratif Melayang -->
+  <div class="floral-bg" aria-hidden="true">
+    <svg class="flower-svg flower-top-right" viewBox="0 0 160 160" fill="none">
+      <defs>
+        <linearGradient id="fGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FF2E93" stop-opacity="0.38" />
+          <stop offset="100%" stop-color="#FF7A00" stop-opacity="0.22" />
+        </linearGradient>
+      </defs>
+      <g transform="translate(80,80)">
+        <ellipse rx="16" ry="54" fill="url(#fGrad1)" transform="rotate(0)" />
+        <ellipse rx="16" ry="54" fill="url(#fGrad1)" transform="rotate(45)" />
+        <ellipse rx="16" ry="54" fill="url(#fGrad1)" transform="rotate(90)" />
+        <ellipse rx="16" ry="54" fill="url(#fGrad1)" transform="rotate(135)" />
+        <circle r="13" fill="#FF7A00" fill-opacity="0.6" />
+      </g>
+    </svg>
+
+    <svg class="flower-svg flower-bottom-left" viewBox="0 0 180 180" fill="none">
+      <defs>
+        <linearGradient id="fGrad2" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#FF7A00" stop-opacity="0.32" />
+          <stop offset="100%" stop-color="#FF2E93" stop-opacity="0.26" />
+        </linearGradient>
+      </defs>
+      <path d="M90 14C105 44 136 44 166 60C136 76 136 104 166 120C136 136 105 136 90 166C75 136 44 136 14 120C44 104 44 76 14 60C44 44 75 44 90 14Z" fill="url(#fGrad2)" />
+      <circle cx="90" cy="90" r="14" fill="#FF2E93" fill-opacity="0.55" />
+    </svg>
+
+    <svg class="flower-svg flower-mid-right" viewBox="0 0 120 120" fill="none">
+      <defs>
+        <linearGradient id="fGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FF2E93" stop-opacity="0.4" />
+          <stop offset="100%" stop-color="#FF7A00" stop-opacity="0.4" />
+        </linearGradient>
+      </defs>
+      <path d="M60 10C70 34 86 34 110 44C86 54 86 66 110 76C86 86 70 86 60 110C50 86 34 86 10 76C34 66 34 54 10 44C34 34 50 34 60 10Z" stroke="url(#fGrad3)" stroke-width="2.5" />
+      <circle cx="60" cy="60" r="7" fill="#FF7A00" fill-opacity="0.6" />
+    </svg>
+  </div>
+
+  <!-- Header & Navigasi -->
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="#awal" class="logo">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M16 2C19.5 10.5 21.5 10.5 30 14C21.5 17.5 21.5 19.5 30 23C21.5 26.5 19.5 26.5 16 30C12.5 26.5 10.5 26.5 2 23C10.5 19.5 10.5 17.5 2 14C10.5 10.5 12.5 10.5 16 2Z" fill="url(#brandLogoGrad)" />
+          <defs>
+            <linearGradient id="brandLogoGrad" x1="0" y1="0" x2="32" y2="32">
+              <stop stop-color="#FF2E93" />
+              <stop offset="1" stop-color="#FF7A00" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span>Veri<strong class="text-gradient">SMA</strong></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigasi Utama">
+        <a href="#informasi-awal">Informasi Awal</a>
+        <a href="#cek-hoaks">Cek Hoaks</a>
+        <a href="#edukasi-kuis">Edukasi &amp; Kuis</a>
+        <a href="#alat-nyata">Cek Fakta Nyata</a>
+        <a href="#lapor-hoaks">Lapor Hoaks</a>
+      </nav>
+
+      <div class="auth-controls">
+        <span id="activeStudentPill" class="student-pill hidden"></span>
+        <button type="button" id="btnOpenLogin" class="btn btn-outline btn-sm glow-hover">Login Siswa</button>
+        <button type="button" id="btnLogout" class="btn btn-ghost btn-sm hidden">Keluar</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Bagian Informasi Awal -->
+    <section id="awal" class="hero-section">
+      <div class="container">
+        <div class="badge-top">Proyek Literasi Digital Sekolah • SMA/SMK</div>
+        <h1 class="main-title">
+          Pusat Cek Fakta &amp; Edukasi Anti-Hoaks <span class="text-gradient">Siswa SMA</span>
+        </h1>
+        <p class="lead-text">
+          Ruang belajar interaktif dan simulasi verifikasi informasi untuk membantu pelajar SMA mengenali ciri hoaks, menahan penyebaran berita palsu, dan melaporkan disinformasi secara aman.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#cek-hoaks" class="btn btn-gradient glow-hover">Uji Teks Berita Sekarang</a>
+          <a href="#edukasi-kuis" class="btn btn-outline glow-hover">Ikuti Kuis Anti-Hoaks</a>
+        </div>
+
+        <!-- 4 Kartu Informasi Awal: Masalah, Tujuan, Sasaran, Petunjuk -->
+        <div id="informasi-awal" class="info-cards-grid">
+          <article class="card card-glow">
+            <span class="step-label">01 • Masalah Hoaks</span>
+            <h2>Tantangan Disinformasi Pelajar</h2>
+            <p>
+              Pesan berantai di grup WhatsApp, potongan video tanpa konteks di TikTok, serta tautan beasiswa palsu kerap memicu kepanikan dan penipuan digital di kalangan siswa SMA yang belum terbiasa memverifikasi sumber.
+            </p>
+          </article>
+
+          <article class="card card-glow">
+            <span class="step-label">02 • Tujuan Website</span>
+            <h2>Membangun Nalar Kritis Digital</h2>
+            <p>
+              Melatih kebiasaan <em>Saring Sebelum Sharing</em> melalui simulasi analisis teks berita, materi edukasi praktis, kuis evaluasi mandiri, akses ke portal cek fakta resmi, dan kanal pelaporan terstruktur.
+            </p>
+          </article>
+
+          <article class="card card-glow">
+            <span class="step-label">03 • Sasaran Pengguna</span>
+            <h2>Komunitas Sekolah Menengah Atas</h2>
+            <p>
+              Ditujukan bagi seluruh siswa SMA/MA/SMK, pengurus OSIS/MPK, anggota ekstrakurikuler jurnalistik/KIR, serta guru pembina literasi digital di lingkungan sekolah.
+            </p>
+          </article>
+
+          <article class="card card-glow">
+            <span class="step-label">04 • Petunjuk Penggunaan</span>
+            <h2>Cara Menggunakan Website</h2>
+            <ol class="usage-list">
+              <li>Klik <strong>Login Siswa</strong> dan pilih <em>Isi Data Contoh Siswa</em> agar aman tanpa data pribadi asli.</li>
+              <li>Tempelkan teks berita pada fitur <strong>Cek Hoaks</strong> untuk melihat skor simulasi &amp; kata provokatif.</li>
+              <li>Pelajari ciri hoaks &amp; kerjakan <strong>Kuis Singkat</strong> di bagian Edukasi.</li>
+              <li>Kirim temuan hoaks lewat <strong>Formulir Lapor</strong> agar tercatat ke Google Sheets.</li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bagian Alat Cek Hoaks Cepat & Uji Keakuratan Teks Berita -->
+    <section id="cek-hoaks" class="section-block">
+      <div class="container">
+        <div class="section-head">
+          <span class="proto-badge">[SIMULASI PROTOTIPE AI]</span>
+          <h2>Alat Cek Hoaks Cepat &amp; Uji Keakuratan Teks Berita</h2>
+          <p>
+            Masukkan judul berita, potongan pesan berantai, atau narasi media sosial untuk mendeteksi kata provokatif dan menghitung estimasi skor keakuratan simulasi.
+          </p>
+        </div>
+
+        <div class="checker-grid">
+          <div class="card">
+            <div class="proto-notice">
+              <strong>[SIMULASI PROTOTIPE AI]</strong> — Fitur ini adalah prototipe edukasi berbasis analisis pola kata provokatif, tanda baca berlebihan, dan kelengkapan rujukan resmi. Selalu pastikan fakta akhir melalui media terverifikasi.
+            </div>
+
+            <label for="newsInput" class="field-label">Teks Berita atau Pesan yang Ingin Diuji:</label>
+            <textarea
+              id="newsInput"
+              rows="6"
+              placeholder="Tempelkan teks berita atau pesan berantai di sini..."
+            ></textarea>
+
+            <div class="preset-bar">
+              <span>Coba contoh cepat:</span>
+              <button type="button" class="chip-btn" id="btnSampleHoax">Contoh Pesan Hoaks</button>
+              <button type="button" class="chip-btn" id="btnSampleFact">Contoh Berita Netral</button>
+            </div>
+
+            <div class="action-row">
+              <button type="button" id="btnAnalyzeNews" class="btn btn-gradient glow-hover">Analisis Keakuratan Teks</button>
+              <button type="button" id="btnResetNews" class="btn btn-ghost">Reset</button>
+            </div>
+          </div>
+
+          <div class="card result-panel">
+            <div class="result-header">
+              <span class="proto-tag-small">[SIMULASI PROTOTIPE AI]</span>
+              <span id="statusBadge" class="badge-status neutral">Siap Menganalisis</span>
+            </div>
+
+            <div class="score-display">
+              <div class="score-ring">
+                <span id="scoreValue">--</span>
+                <small>Skor Akurasi</small>
+              </div>
+              <div class="score-info">
+                <h3 id="scoreTitle">Belum Ada Teks yang Diuji</h3>
+                <p id="scoreDesc">
+                  Masukkan teks di sebelah kiri lalu klik tombol analisis untuk melihat estimasi keakuratan dan daftar kata provokatif yang terdeteksi.
+                </p>
+              </div>
+            </div>
+
+            <div class="meter-bg" aria-hidden="true">
+              <div id="scoreMeterFill" class="meter-fill" style="width: 0%"></div>
+            </div>
+
+            <div class="result-block">
+              <h4>Deteksi Kata / Frasa Provokatif:</h4>
+              <div id="provocativeList" class="chip-container">
+                <span class="muted-text">Belum ada kata provokatif terdeteksi.</span>
+              </div>
+            </div>
+
+            <div class="result-block">
+              <h4>Indikator Pemeriksaan:</h4>
+              <ul id="indicatorList" class="bullet-list">
+                <li>Deteksi kata sensasional &amp; perintah menyebarkan pesan.</li>
+                <li>Pemeriksaan huruf kapital ekstrem dan tanda seru beruntun.</li>
+                <li>Pengecekan keberadaan rujukan lembaga atau domain resmi.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bagian Materi Edukasi & Kuis Singkat (Transisi Tab Mulus) -->
+    <section id="edukasi-kuis" class="section-block">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker-text">Materi Literasi &amp; Evaluasi</span>
+          <h2>Edukasi Ciri Hoaks, Pencegahan &amp; Kuis Singkat</h2>
+          <p>Pilih tab di bawah untuk mempelajari panduan anti-hoaks atau menguji pemahamanmu lewat kuis interaktif.</p>
+        </div>
+
+        <div class="tab-nav" role="tablist" aria-label="Tab Edukasi Anti-Hoaks">
+          <button type="button" class="tab-trigger active" role="tab" aria-selected="true" data-target="panel-ciri">
+            Ciri-Ciri Hoaks
+          </button>
+          <button type="button" class="tab-trigger" role="tab" aria-selected="false" data-target="panel-cegah">
+            Langkah Pencegahan
+          </button>
+          <button type="button" class="tab-trigger" role="tab" aria-selected="false" data-target="panel-kuis">
+            Kuis Singkat (5 Soal)
+          </button>
+        </div>
+
+        <!-- Panel 1: Ciri Hoaks -->
+        <div id="panel-ciri" class="tab-content active" role="tabpanel">
+          <div class="edu-cards-grid">
+            <div class="card card-glow">
+              <h3>1. Judul Provokatif &amp; Memancing Emosi</h3>
+              <p>Menggunakan kata seperti <em>"GEGER", "TERBONGKAR", "WAJIB SEBARKAN"</em> atau tanda seru berlapis untuk membuat pembaca panik sebelum membaca isi.</p>
+            </div>
+            <div class="card card-glow">
+              <h3>2. Tidak Ada Sumber Resmi yang Jelas</h3>
+              <p>Tidak mencantumkan nama narasumber kredibel, tanggal kejadian, lokasi akurat, maupun tautan ke situs lembaga resmi (<code>.go.id</code> / media terverifikasi).</p>
+            </div>
+            <div class="card card-glow">
+              <h3>3. Mendesak untuk Segera Diteruskan</h3>
+              <p>Memuat ancaman atau batasan waktu palsu seperti <em>"Sebarkan sebelum dihapus"</em> agar pesan cepat menyebar dari grup ke grup tanpa verifikasi.</p>
+            </div>
+            <div class="card card-glow">
+              <h3>4. Foto atau Video Lama Diberi Narasi Baru</h3>
+              <p>Memakai dokumentasi peristiwa lama dari tempat berbeda lalu diklaim sebagai kejadian baru di lingkungan sekolah atau kota setempat.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2: Langkah Pencegahan -->
+        <div id="panel-cegah" class="tab-content" role="tabpanel">
+          <div class="steps-stack">
+            <div class="card step-card card-glow">
+              <div class="step-circle">1</div>
+              <div>
+                <h3>Berhenti Sejenak &amp; Baca Utuh</h3>
+                <p>Jangan terburu-buru membagikan informasi hanya karena judulnya mengejutkan. Baca seluruh paragraf secara menyeluruh.</p>
+              </div>
+            </div>
+            <div class="card step-card card-glow">
+              <div class="step-circle">2</div>
+              <div>
+                <h3>Bandingkan dengan Media Kredibel</h3>
+                <p>Cari kata kunci berita di mesin pencari dan pastikan minimal dua media arus utama yang terdaftar di Dewan Pers memberitakan hal serupa.</p>
+              </div>
+            </div>
+            <div class="card step-card card-glow">
+              <div class="step-circle">3</div>
+              <div>
+                <h3>Telusuri Keaslian Gambar (Reverse Image Search)</h3>
+                <p>Gunakan Google Lens untuk mengecek apakah foto yang beredar pernah diunggah sebelumnya pada konteks berbeda.</p>
+              </div>
+            </div>
+            <div class="card step-card card-glow">
+              <div class="step-circle">4</div>
+              <div>
+                <h3>Periksa di Portal Cek Fakta Resmi</h3>
+                <p>Cek klaim viral di TurnBackHoax.id, CekFakta.com, atau Google Fact Check Explorer sebelum meneruskan ke grup teman atau keluarga.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 3: Kuis Singkat -->
+        <div id="panel-kuis" class="tab-content" role="tabpanel">
+          <div class="card quiz-box">
+            <div class="quiz-top-bar">
+              <span id="quizCounter">Soal 1 dari 5</span>
+              <span id="quizScoreBadge" class="score-pill">Skor: 0</span>
+            </div>
+            <h3 id="quizQuestionText" class="quiz-question">Memuat soal...</h3>
+            <div id="quizOptionsWrap" class="quiz-options-list"></div>
+            <div id="quizExplainBox" class="quiz-explain hidden"></div>
+            <div class="quiz-actions">
+              <button type="button" id="btnNextQuestion" class="btn btn-gradient hidden">Soal Berikutnya</button>
+              <button type="button" id="btnRestartQuiz" class="btn btn-outline hidden">Ulangi Kuis</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bagian Daftar Tautan Alat Cek Fakta Nyata -->
+    <section id="alat-nyata" class="section-block">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker-text">Rujukan Verifikasi Nyata</span>
+          <h2>Daftar Alat &amp; Portal Cek Fakta Resmi</h2>
+          <p>Gunakan layanan pemeriksa fakta terpercaya berikut untuk melakukan verifikasi kebenaran informasi secara langsung.</p>
+        </div>
+
+        <div class="links-grid">
+          <a href="https://turnbackhoax.id/" target="_blank" rel="noopener noreferrer" class="card link-card card-glow">
+            <span class="org-tag">MAFINDO Indonesia</span>
+            <h3>TurnBackHoax.id</h3>
+            <p>Basis data klarifikasi hoaks nasional yang dikelola Masyarakat Anti Fitnah Indonesia beserta komunitas pemeriksa fakta.</p>
+            <span class="visit-text">Buka TurnBackHoax.id &rarr;</span>
+          </a>
+
+          <a href="https://toolbox.google.com/factcheck/explorer" target="_blank" rel="noopener noreferrer" class="card link-card card-glow">
+            <span class="org-tag">Google Fact Check Tools</span>
+            <h3>Google Fact Check Explorer</h3>
+            <p>Mesin pencari klaim viral yang telah diperiksa oleh lembaga cek fakta terakreditasi di Indonesia dan dunia.</p>
+            <span class="visit-text">Buka Google Fact Check &rarr;</span>
+          </a>
+
+          <a href="https://cekfakta.com/" target="_blank" rel="noopener noreferrer" class="card link-card card-glow">
+            <span class="org-tag">Koalisi Cek Fakta</span>
+            <h3>CekFakta.com</h3>
+            <p>Portal kolaborasi puluhan redaksi media Indonesia bersama AJI dan AMSI untuk membantah kabar bohong.</p>
+            <span class="visit-text">Buka CekFakta.com &rarr;</span>
+          </a>
+
+          <a href="https://www.komdigi.go.id/" target="_blank" rel="noopener noreferrer" class="card link-card card-glow">
+            <span class="org-tag">Pemerintah RI</span>
+            <h3>Kanal Aduan &amp; Klarifikasi Komdigi</h3>
+            <p>Portal resmi Kementerian Komunikasi dan Digital untuk laporan konten negatif dan klarifikasi isu hoaks harian.</p>
+            <span class="visit-text">Buka Situs Komdigi &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bagian Formulir Lapor Hoaks -->
+    <section id="lapor-hoaks" class="section-block">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker-text">Kontribusi Siswa</span>
+          <h2>Formulir Lapor Hoaks ke Google Sheets</h2>
+          <p>Laporkan konten mencurigakan yang beredar di lingkungan pelajar agar dapat dicatat dan ditinjau tim literasi sekolah.</p>
+        </div>
+
+        <div class="report-grid">
+          <form id="hoaxReportForm" class="card">
+            <div class="two-col">
+              <div class="form-field">
+                <label for="repName">Nama Pelapor (atau Alias)</label>
+                <input type="text" id="repName" required placeholder="Contoh: Raka Pratama" />
+              </div>
+              <div class="form-field">
+                <label for="repClass">Kelas / Sekolah</label>
+                <input type="text" id="repClass" required placeholder="Contoh: XI IPA 2 / SMAN 1" />
+              </div>
+            </div>
+
+            <div class="two-col">
+              <div class="form-field">
+                <label for="repPlatform">Platform Sumber</label>
+                <select id="repPlatform" required>
+                  <option value="">-- Pilih Platform --</option>
+                  <option value="WhatsApp">WhatsApp</option>
+                  <option value="TikTok">TikTok</option>
+                  <option value="Instagram">Instagram</option>
+                  <option value="X (Twitter)">X (Twitter)</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="Website">Website / Blog</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="repCategory">Kategori Dugaan Hoaks</label>
+                <select id="repCategory" required>
+                  <option value="">-- Pilih Kategori --</option>
+                  <option value="Pendidikan & Beasiswa">Pendidikan &amp; Beasiswa</option>
+                  <option value="Penipuan / Phishing">Penipuan / Phishing</option>
+                  <option value="Kesehatan">Kesehatan</option>
+                  <option value="Bencana & Keamanan">Bencana &amp; Keamanan</option>
+                  <option value="Lainnya">Lainnya</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="repUrl">Tautan Konten (Opsional)</label>
+              <input type="url" id="repUrl" placeholder="https://contoh-tautan.com/..." />
+            </div>
+
+            <div class="form-field">
+              <label for="repDesc">Isi Klaim &amp; Alasan Dicurigai</label>
+              <textarea id="repDesc" rows="4" required placeholder="Tuliskan ringkasan klaim hoaks dan alasan mengapa informasi tersebut mencurigakan..."></textarea>
+            </div>
+
+            <p class="endpoint-info">
+              Target Endpoint: <code>URL_APPS_SCRIPT_ANDA</code> (atur di <code>script.js</code>).
+            </p>
+
+            <button type="submit" id="btnSubmitReport" class="btn btn-gradient glow-hover">
+              Kirim Laporan Hoaks
+            </button>
+
+            <div id="reportFeedback" class="feedback-alert hidden" role="status"></div>
+          </form>
+
+          <aside class="card side-note-card">
+            <h3>Integrasi Aman Tanpa API Key</h3>
+            <ul class="bullet-list">
+              <li>Formulir mengirim data menggunakan <code>fetch()</code> ke Web App Google Apps Script (<code>doPost</code>).</li>
+              <li>Tidak menyimpan API key rahasia di kode HTML/JavaScript sehingga aman diunggah ke GitHub publik.</li>
+              <li>Selama URL masih berupa placeholder <code>URL_APPS_SCRIPT_ANDA</code>, sistem otomatis menjalankan simulasi penyimpanan lokal.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p><strong>VeriSMA</strong> — Proyek Sekolah Pusat Cek Fakta &amp; Edukasi Anti-Hoaks Siswa SMA.</p>
+      <p>Aman untuk pelajar • Simulasi berbasis browser lokal &amp; Google Sheets.</p>
+    </div>
+  </footer>
+
+  <!-- Modal Login Simulasi berbasis localStorage -->
+  <div id="loginModalBackdrop" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modalLoginHeading">
+    <div class="modal-box">
+      <div class="modal-top">
+        <h3 id="modalLoginHeading">Login Simulasi Siswa</h3>
+        <button type="button" id="btnCloseLogin" class="close-x" aria-label="Tutup">&times;</button>
+      </div>
+      <p class="modal-note">
+        Data disimpan hanya di <code>localStorage</code> browser Anda untuk simulasi proyek sekolah. Klik <strong>Isi Data Contoh Siswa</strong> agar aman tanpa menggunakan data pribadi asli.
+      </p>
+
+      <form id="simLoginForm">
+        <div class="form-field">
+          <label for="simStudentName">Nama Tampilan / Alias</label>
+          <input type="text" id="simStudentName" required placeholder="Contoh: Alya Putri (Simulasi)" />
+        </div>
+        <div class="form-field">
+          <label for="simStudentClass">Kelas</label>
+          <input type="text" id="simStudentClass" required placeholder="Contoh: XI-2" />
+        </div>
+        <div class="form-field">
+          <label for="simStudentSchool">Nama Sekolah (Simulasi)</label>
+          <input type="text" id="simStudentSchool" required placeholder="Contoh: SMA Negeri Merdeka" />
+        </div>
+
+        <div class="modal-buttons">
+          <button type="button" id="btnFillDemo" class="btn btn-outline">Isi Data Contoh Siswa</button>
+          <button type="submit" class="btn btn-gradient">Masuk Simulasi</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
